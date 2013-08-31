@@ -6,24 +6,24 @@ package net.dnaware;
  * Time: 02:16
  * Project: VendingMachine
  */
-public class ProductAuth {
+public class ProductAuthorization {
 
-    private String product;
-    private int money;
+    private String selectedProduct;
+    private int changeEntered;
 
-    public ProductAuth(String productchoice, int change) {
-        this.product = productchoice;
-        this.money = change;
+    public ProductAuthorization(String productChoice, int change) {
+        this.selectedProduct = productChoice;
+        this.changeEntered = change;
     }
 
-    public ProductAuth() {
-        this.product = "";
-        this.money = 0;
+    public ProductAuthorization() {
+        this.selectedProduct = "";
+        this.changeEntered = 0;
     }
 
     public boolean authPurchase() {
 
-        if (product.equals("") || money == 0 || product.length() < 2)
+        if (selectedProduct.equals("") || changeEntered == 0 || selectedProduct.length() < 2)
             return false;
 
         if (this.testRow() && this.testCol())
@@ -34,14 +34,12 @@ public class ProductAuth {
     }
 
     private boolean testMoney() {
-        if (money < 50)
-            return false;
+        return changeEntered >= 50;
 
-        return true;
     }
 
     private boolean testCol() {
-        char col = Character.toLowerCase(product.charAt(1));
+        char col = Character.toLowerCase(selectedProduct.charAt(1));
 
         switch(col)
         {
@@ -56,7 +54,7 @@ public class ProductAuth {
     }
 
     private boolean testRow() {
-        char row = Character.toLowerCase(product.charAt(0));
+        char row = Character.toLowerCase(selectedProduct.charAt(0));
 
         switch (row)
         {

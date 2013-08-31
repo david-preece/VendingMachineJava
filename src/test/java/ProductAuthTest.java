@@ -1,4 +1,4 @@
-import net.dnaware.ProductAuth;
+import net.dnaware.ProductAuthorization;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,27 +13,27 @@ public class ProductAuthTest {
     @Test
     public void ClassShouldExist ()
     {
-        ProductAuth userinput = new ProductAuth ();
+        ProductAuthorization userInput = new ProductAuthorization();
     }
 
     @Test
     public void ClassShouldHaveConstructor ()
     {
-        ProductAuth userInput = new ProductAuth("A4", 50);
+        ProductAuthorization userInput = new ProductAuthorization("A4", 50);
     }
 
     @Test
-    public void ShouldRunTest ()
+    public void ShouldRunAuthorization ()
     {
-        ProductAuth userinput = new ProductAuth("A4", 50);
+        ProductAuthorization userInput = new ProductAuthorization("A4", 50);
 
-        userinput.authPurchase();
+        userInput.authPurchase();
     }
 
     @Test
     public void ShouldReturnFalseValue()
     {
-        ProductAuth userInput = new ProductAuth("A3", 49);
+        ProductAuthorization userInput = new ProductAuthorization("A3", 49);
 
         boolean expectedResult = false;
         boolean actualResult = userInput.authPurchase();
@@ -44,7 +44,7 @@ public class ProductAuthTest {
     @Test
     public void ShouldReturnTrueValue()
     {
-        ProductAuth userInput = new ProductAuth("A4", 50);
+        ProductAuthorization userInput = new ProductAuthorization("A4", 50);
 
         boolean expectedResult = true;
         boolean actualResult = userInput.authPurchase();

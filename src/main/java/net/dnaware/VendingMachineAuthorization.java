@@ -6,7 +6,7 @@ package net.dnaware;
  * Time: 03:02
  * Project: VendingMachine
  */
-public class VendingMachineAuth {
+public class VendingMachineAuthorization {
 
     public static void main(String[] args)
     {
@@ -16,11 +16,10 @@ public class VendingMachineAuth {
             System.exit(1);
         }
 
-        ProductAuth input = new ProductAuth(args[0], Integer.parseInt(args[1]));
-        if (input.authPurchase())
-            System.out.println("Purchase Authorised.");
-        else
-            System.out.println("Purchase NOT Authorised.");
+        ProductAuthorization input = new ProductAuthorization(args[0], Integer.parseInt(args[1]));
+        String outputMessage = (input.authPurchase()) ? "Purchase Authorised." : "Purchase NOT Authorised.";
+
+        System.out.println(outputMessage);
 
         System.exit(0);
     }
